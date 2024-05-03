@@ -8,3 +8,4 @@ url: "https://github.com/voxel51/fiftyone-huggingface-plugins/plugins/huggingfac
 operators:
   - push_to_huggingface_hub
   - load_from_huggingface_hub
+  - huggingface_hub
