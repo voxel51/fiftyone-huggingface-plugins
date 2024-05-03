@@ -2,7 +2,7 @@ name: "@voxel51/hugginface_hub"
 description: Push and load datasets to/from the Hugging Face Hub
 version: 0.1.0
 fiftyone:
-  version: ">=0.23.8"
+  version: ">=0.24.0"
 license: Apache 2.0
 url: "https://github.com/voxel51/fiftyone-huggingface-plugins/plugins/huggingface_hub"
 operators:
