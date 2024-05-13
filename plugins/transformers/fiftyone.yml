@@ -1,0 +1,9 @@
+name: "@voxel51/transformers"
+description: Apply Hugging Face Transformers models to your FiftyOne Datasets
+version: 0.1.0
+fiftyone:
+  version: ">=0.23.7"
+license: Apache 2.0
+url: "https://github.com/voxel51/fiftyone-huggingface-plugins/plugins/transformers"
+operators:
+  - apply_transformer_model
