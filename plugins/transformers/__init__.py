@@ -1,6 +1,6 @@
 """Hugging Face Transformers plugin.
 
-| Copyright 2017-2023, Voxel51, Inc.
+| Copyright 2017-2024, Voxel51, Inc.
 | `voxel51.com <https://voxel51.com/>`_
 |
 """
@@ -15,39 +15,6 @@ import fiftyone.zoo as foz
 
 hfh = fou.lazy_import("huggingface_hub")
 transformers = fou.lazy_import("transformers")
-
-
-FIFTYONE_HUB_URL_TEMPLATE = (
-    "https://huggingface.co/datasets?other=fiftyone&sort=trending&p={i}"
-)
-
-LICENSES = (
-    "apache-2.0",
-    "cc",
-    "cc0-1.0",
-    "cc-by-2.0",
-    "cc-by-2.5",
-    "cc-by-3.0",
-    "cc-by-4.0",
-    "cc-by-sa-3.0",
-    "cc-by-sa-4.0",
-    "cc-by-nc-2.0",
-    "cc-by-nc-3.0",
-    "cc-by-nc-4.0",
-    "c-uda",
-    "bsd",
-    "bsd-2-clause",
-    "bsd-3-clause",
-    "gpl",
-    "gpl-2.0",
-    "gpl-3.0",
-    "mit",
-    "odc-by",
-    "unlicense",
-    "other",
-)
-
-PREVIEW_EXTS = (".png", ".jpg", ".jpeg", ".gif")
 
 
 task_map = {
@@ -239,13 +206,6 @@ def _apply_transformer_model_inputs(ctx, inputs):
         required=False,
     )
 
-    inputs.int(
-        "num_workers",
-        label="Number of workers",
-        description="Number of workers to use when applying the model",
-        required=False,
-    )
-
     inputs.bool(
         "skip_failures",
         label="Skip failures",
@@ -266,13 +226,10 @@ def _apply_transformer_model(ctx):
     name_or_path = ctx.params.get("model_name")
 
     batch_size = ctx.params.get("batch_size", None)
-    num_workers = ctx.params.get("num_workers", None)
     skip_failures = ctx.params.get("skip_failures", True)
 
     delegate = ctx.params.get("delegate", False)
-
-    if not delegate:
-        num_workers = 0
+    num_workers = None if delegate else 0
 
     model = foz.load_zoo_model(zoo_name, name_or_path=name_or_path)
 
