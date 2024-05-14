@@ -15,7 +15,7 @@ This plugin will only work with FiftyOne version `0.23.8` or later.
 Then, download the plugin:
 
 ```bash
-fiftyone plugins download https://github.com/voxel51/fiftyone-plugins \
+fiftyone plugins download https://github.com/voxel51/fiftyone-huggingface-plugins \
     --plugin-names @voxel51/huggingface_hub
 ```
 
