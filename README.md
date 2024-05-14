@@ -20,11 +20,11 @@ pip install -U fiftyone transformers huggingface_hub
 Then, download the plugins:
 
 ```bash
-fiftyone plugins download https://github.com/voxel51/fiftyone_huggingface_plugins
+fiftyone plugins download https://github.com/voxel51/fiftyone-huggingface-plugins
 ```
 
 To install just one of the plugins, you can specify the plugin name. For example, to install the `@voxel51/transformers` plugin:
 
 ```bash
-fiftyone plugins download https://github.com/voxel51/fiftyone_huggingface_plugins --plugin-names @voxel51/transfomers
+fiftyone plugins download https://github.com/voxel51/fiftyone-huggingface-plugins --plugin-names @voxel51/transfomers
 ```
